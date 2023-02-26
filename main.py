@@ -2,6 +2,10 @@ from bson import ObjectId
 from fastapi import Body, FastAPI, HTTPException
 from pymongo import MongoClient
 from fastapi.middleware.cors import CORSMiddleware
+from dotenv import load_dotenv
+import os
+load_dotenv()
+mongo_uri = os.environ.get("MONGO_URI")
 
 app = FastAPI()
 
@@ -14,8 +18,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 # connecting to the mongo atlas client and getting the blogs db and collection
-client = MongoClient(
-    "mongodb+srv://ahmed:ahmed123@cluster0.or386.mongodb.net/?retryWrites=true&w=majority")
+client = MongoClient(mongo_uri)
 db = client["blogs"]
 collection = db["blogs"]
 
