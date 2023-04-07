@@ -1,4 +1,4 @@
-"# blogs-elyadata-fastAPI" 
+"# blogs-fastAPI" 
 STEPS TO RUN THE FASTAPI SERVER
 
 1. clone the repository
